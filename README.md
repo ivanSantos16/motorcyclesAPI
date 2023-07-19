@@ -10,3 +10,12 @@
 <br>
 
 <h1 style="text-align: left;">motorcycles<span style="color: #00b336">$\color[rgb]{0.95,0.71,0.22} API$</span></h1>
+
+<p style="text-align: justify;">This simple API allows the user to get info about Motorcycles. </p>
+
+## **Features**
+
+- [x] JWT Authentication;
+- [x] CRUD operations;
+- [x] Swagger UI documentation;
+- [ ] Units tests for all endpoints with CI integration using GitHub Actions;
