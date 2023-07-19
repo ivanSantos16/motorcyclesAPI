@@ -1,0 +1,60 @@
+Retrieve all motorcycles matching the given search criteria.
+---
+tags:
+  - Motorcycle
+description: "This gets info about all motorcycles from the database. The user needs to be authenticated to get info about all motorcycles. The data shown has a limit of 10 motorcycles per page. To see the next page, add the page number to the URL. For example: /motorcycles?page=2. Or change the motorcycle per page. For example: /motorcycles?per_page=12"
+produces:
+  - "application/json"
+operationId: "handle_motorcycles"
+parameters:
+  - in: query
+    name: brand
+    required: false
+    schema:
+      type: string
+    description: The brand of the motorcycle to get info about
+  - in: query
+    name: model
+    required: false
+    schema:
+      type: string
+    description: The model of the motorcycle to get info about
+  - in: query
+    name: year
+    required: false
+    schema:
+      type: integer
+    description: The construction year of the motorcycle to get info about
+  - in: query
+    name: category
+    required: false
+    schema:
+      type: string
+    description: The category of the motorcycle to get info about
+  - in: query
+    name: page
+    required: false
+    schema:
+      type: integer
+    description: The page number to get info about
+  - in: query
+    name: per_page
+    required: false
+    schema:
+      type: integer
+    description: The number of motorcycles per page
+responses:
+  200:
+    description: Motorcycle info retrieved sucessfully
+    schema:
+      $ref: '#/definitions/APIResponseMetadata'
+  400:
+    description: Invalid parameter - {key}
+  401:
+    description: Missing Authorization Header
+  404:
+    description: No motorcycles found
+  500:
+    description: Internal Server Error
+security:
+  - Bearer: []

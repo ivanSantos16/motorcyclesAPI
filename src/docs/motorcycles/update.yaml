@@ -1,0 +1,40 @@
+Update info about a specific Motorcycle
+---
+tags:
+  - Motorcycle
+description: "This updates a motorcycle from the database. The user needs to be authenticated to update a motorcycle."
+produces:
+  - "application/json"
+operationId: "update_motorcycle"
+consumes:
+  - "application/json"
+parameters:
+  - in: path
+    name: motorcycles_niv
+    required: true
+    schema:
+      type: string
+    description: The NIV of the motorcycle to update 
+  - in: body
+    name: body
+    required: true
+    schema:
+      $ref: '#/definitions/Motorcycle'
+    description: The Motorcycle Info to update
+responses:
+  200:
+    description: Motorcycle updated sucessfully
+    schema:
+      $ref: '#/definitions/APIResponse'
+  400:
+    description: Invalid parameter - {key}
+  401:
+    description: Missing Authorization Header
+  404:
+    description: Motorcycle with niv - {motorcycles_niv} - not found
+  409:
+    description: URL already exists
+  500:
+    description: Internal Server Error
+security:
+  - Bearer: []

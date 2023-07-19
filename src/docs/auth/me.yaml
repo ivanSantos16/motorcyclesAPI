@@ -1,0 +1,21 @@
+Get user's own info
+---
+tags:
+  - Authentication
+description:
+  "Gets the user's own information"
+produces:
+  - application/json
+responses:
+  200:
+    description: User retrieved successfully
+  401:
+    description: Missing Authorization Header
+  405:
+    description: Method not allowed
+  422:
+    description: Not enough segments
+  500:
+    description: Internal server error 
+security:
+  - Bearer: []

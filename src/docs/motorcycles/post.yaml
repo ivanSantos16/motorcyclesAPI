@@ -1,0 +1,32 @@
+Add a new motorcycle to the database.
+---
+tags:
+  - Motorcycle
+description: "This adds a new motorcycle to the database. The user needs to be authenticated to add a new motorcycle."
+produces:
+  - "application/json"
+consumes:
+  - "application/json"
+operationId: "handle_motorcycles"
+parameters:
+  - in: body
+    name: body
+    required: true
+    schema:
+      $ref: '#/definitions/Motorcycle'
+    description: The Motorcycle Info to add
+responses:
+  201:
+    description: Motorcycle added sucessfully
+    schema:
+      $ref: '#/definitions/APIResponse'
+  400:
+    description: Invalid parameter - {key}
+  401:
+    description: Missing Authorization Header
+  409:
+    description: URL already exists
+  500:
+    description: Internal Server Error
+security:
+  - Bearer: []

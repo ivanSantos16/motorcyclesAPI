@@ -1,0 +1,19 @@
+Get stats about Motorcycles related to the user
+---
+tags:
+  - Motorcycle
+description: "This only returns the stats about the motorcycles related to the user. So, the user needs to use the private token to get the stats."
+operationId: "get_stats"
+produces:
+  - "application/json"
+responses:
+  200:
+    description: Motorcycles related to user retrieved successfully
+    schema:
+      $ref: "#/definitions/Stats"
+  401:
+    description: Missing Authorization Header
+  500:
+    description: Internal Server Error
+security:
+  - Bearer: []

@@ -1,0 +1,23 @@
+Refresh Token
+---
+tags:
+  - Authentication
+description:
+  "Refreshes a user's access token with a valid old token"
+produces:
+  - application/json
+responses:
+  200:
+    description: Token refreshed successfully
+  400:
+    description: Bad request data
+  401:
+    description: Missing Authorization Header
+  405:
+    description: Method not allowed
+  422:
+    description: Not enough segments
+  500:
+    description: Internal server error
+security:
+  - Bearer: []

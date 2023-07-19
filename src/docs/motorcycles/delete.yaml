@@ -1,0 +1,26 @@
+Delete a Motorcycle
+---
+tags:
+  - Motorcycle
+description: "This deletes a motorcycle from the database. The user needs to be authenticated to delete a motorcycle."
+parameters:
+  - in: path
+    name: motorcycles_niv
+    required: true
+    schema:
+      type: string
+    description: The NIV of the motorcycle to delete 
+produces:
+  - "application/json"
+operationId: "delete_motorcycle"
+responses:
+  204:
+    description: No content
+  401:
+    description: Missing Authorization Header
+  404:
+    description: Motorcycle with niv - {motorcycles_niv} - not found
+  500:
+    description: Internal Server Error
+security:
+  - Bearer: []
