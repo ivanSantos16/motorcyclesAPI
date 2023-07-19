@@ -27,7 +27,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run tests with pytest and code coverage with coverage.py
         run: |
-          pytest tests -v --cov=src/ --cov-report tests/lcov
+          pytest tests -v --cov=src/ --cov-report lcov
       
       - name: Upload Coverage Results
         uses: coverallsapp/github-action@master
