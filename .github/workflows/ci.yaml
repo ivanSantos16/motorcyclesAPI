@@ -33,4 +33,4 @@ jobs:
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.github_token }}
-          path-to-lcov: Source/tests/lcov
+          path-to-lcov: lcov
