@@ -3,6 +3,7 @@
 ![software-version](https://custom-icon-badges.demolab.com/badge/Version-v1.0-gray.svg?labelColor=informational&logo=stack)
 ![software-state](https://custom-icon-badges.demolab.com/badge/Status%20-Under%20Development-gray.svg?labelColor=informational&logo=gear)
 ![passing-pytest](https://github.com/ivanSantos16/motorcyclesAPI/actions/workflows/ci.yaml/badge.svg)
+![pytest-coverage](https://coveralls.io/repos/ivanSantos16/motorcyclesAPI/badge.png)
 
 ![software-owner](https://custom-icon-badges.demolab.com/badge/Owner%20-Ivan%20Santos-gray.svg?labelColor=informational&logo=person)
 <a href="mailto:ivan.rafa.16@gmail.com" rel="nofollow">![owner-contact: ivan.rafa.16@gmail.com](https://custom-icon-badges.demolab.com/badge/Contact%20-ivan.rafa.16@gmail.com-gray.svg?labelColor=informational&logo=mail)</a>
