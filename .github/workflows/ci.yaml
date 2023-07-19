@@ -25,6 +25,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Run tests
+      - name: Run tests with pytest and code coverage with coverage.py
         run: |
-          python -m pytest
+          pytest tests -v --cov=src/ --cov-report tests/lcov.info
+      
+      - name: Upload Coverage Results
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
+          path-to-lcov: Source/tests/lcov.info
