@@ -213,3 +213,125 @@ class UserTestCase(unittest.TestCase):
         )
 
         self.assertEqual(response.status_code, 422)
+
+    def test_user_password_less_than_8_characters(self):
+        response = self.client.post(
+            "/api/v1/auth/register",
+            json={
+                "username": "test",
+                "email": "test@email.com",
+                "password": "Test123",
+            },
+        )
+
+        self.assertEqual(response.status_code, 400)
+
+    def test_user_password_no_uppercase(self):
+        response = self.client.post(
+            "/api/v1/auth/register",
+            json={
+                "username": "test",
+                "email": "test@email.com",
+                "password": "test123!",
+            },
+        )
+
+        self.assertEqual(response.status_code, 400)
+
+    def test_user_password_no_lowercase(self):
+        response = self.client.post(
+            "/api/v1/auth/register",
+            json={
+                "username": "test",
+                "email": "test@email.com",
+                "password": "TEST123!",
+            },
+        )
+
+        self.assertEqual(response.status_code, 400)
+
+    def test_user_password_no_special(self):
+        response = self.client.post(
+            "/api/v1/auth/register",
+            json={
+                "username": "test",
+                "email": "test@email.com",
+                "password": "TEST1234",
+            },
+        )
+
+        self.assertEqual(response.status_code, 400)
+
+    def test_user_less_than_3_characters(self):
+        response = self.client.post(
+            "/api/v1/auth/register",
+            json={
+                "username": "te",
+                "email": "test@email.com",
+                "password": "TEST1234",
+            },
+        )
+
+        self.assertEqual(response.status_code, 400)
+
+    def test_user_email_already_exists(self):
+        self.client.post(
+            "/api/v1/auth/register",
+            json={
+                "username": "test",
+                "email": "test@email.com",
+                "password": "Test123!",
+            },
+        )
+
+        response = self.client.post(
+            "/api/v1/auth/register",
+            json={
+                "username": "test2",
+                "email": "test@email.com",
+                "password": "Test123!",
+            },
+        )
+
+        self.assertEqual(response.status_code, 409)
+
+    def test_user_same_username(self):
+        self.client.post(
+            "/api/v1/auth/register",
+            json={
+                "username": "test",
+                "email": "test@email.com",
+                "password": "Test123!",
+            },
+        )
+
+        response = self.client.post(
+            "/api/v1/auth/register",
+            json={
+                "username": "test",
+                "email": "test2@email.com",
+                "password": "Test123!",
+            },
+        )
+
+        self.assertEqual(response.status_code, 409)
+
+    def test_user_login_invalid_email(self):
+        self.client.post(
+            "/api/v1/auth/register",
+            json={
+                "username": "test",
+                "email": "test@email.com",
+                "password": "TEST123!",
+            },
+        )
+
+        response = self.client.post(
+            "/api/v1/auth/login",
+            json={
+                "email": "test",
+                "password": "TEST123!",
+            },
+        )
+
+        self.assertEqual(response.status_code, 401)
