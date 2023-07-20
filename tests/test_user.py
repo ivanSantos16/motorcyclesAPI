@@ -1,8 +1,7 @@
 import unittest
-import os
 from src.config.config import config_dict
 from src import create_app
-from src.database import db, Motorcycle, User
+from src.database import db, User
 
 
 class UserTestCase(unittest.TestCase):
@@ -256,7 +255,7 @@ class UserTestCase(unittest.TestCase):
             json={
                 "username": "test",
                 "email": "test@email.com",
-                "password": "TEST1234",
+                "password": "Test1234",
             },
         )
 
@@ -268,7 +267,7 @@ class UserTestCase(unittest.TestCase):
             json={
                 "username": "te",
                 "email": "test@email.com",
-                "password": "TEST1234",
+                "password": "Test1234!",
             },
         )
 
@@ -335,3 +334,15 @@ class UserTestCase(unittest.TestCase):
         )
 
         self.assertEqual(response.status_code, 401)
+
+    def test_user_with_space(self):
+        response = self.client.post(
+            "/api/v1/auth/register",
+            json={
+                "username": "testtest ",
+                "email": "test@email.com",
+                "password": "Test123!",
+            },
+        )
+
+        self.assertEqual(response.status_code, 400)
