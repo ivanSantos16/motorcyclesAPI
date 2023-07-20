@@ -19,7 +19,7 @@ class User(db.Model):
     motorcycles = db.relationship("Motorcycle", backref="user")
 
     def __repr__(self):
-        return "User>>> {self.username}"
+        return f"User>>> {self.username}"
 
 
 class Motorcycle(db.Model):
@@ -77,4 +77,4 @@ class Motorcycle(db.Model):
         self.short_url = self.generate_short_url()
 
     def __repr__(self):
-        return "Motorcycles >>> {self.brand} {self.model} {self.year}"
+        return f"Motorcycle>>> {self.brand} {self.model} {self.year}"
