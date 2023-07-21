@@ -9,7 +9,7 @@
 <br>
 
 ![passing-pytest](https://github.com/ivanSantos16/motorcyclesAPI/actions/workflows/ci.yaml/badge.svg)
-![pytest-coverage](https://coveralls.io/repos/ivanSantos16/motorcyclesAPI/badge.png)
+[![Coverage Status](https://coveralls.io/repos/github/ivanSantos16/motorcyclesAPI/badge.svg?branch=main)](https://coveralls.io/github/ivanSantos16/motorcyclesAPI?branch=main)
 
 <h1 style="text-align: left;">motorcycles<span style="color: #00b336">$\color[rgb]{0.95,0.71,0.22} API$</span></h1>
 
