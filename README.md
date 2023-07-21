@@ -20,6 +20,6 @@
 - [x] JWT Authentication;
 - [x] CRUD operations;
 - [x] Swagger UI documentation;
-- [ ] Units tests for all endpoints with CI integration using GitHub Actions;
+- [x] Units tests for all endpoints with CI integration using GitHub Actions;
 - [ ] Containerization of the application. One container for flask app and other for postgres database;
 - [ ] ETL script capable of import for API database data from Kaggle;
