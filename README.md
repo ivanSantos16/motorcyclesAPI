@@ -23,3 +23,41 @@
 - [x] Units tests for all endpoints with CI integration using GitHub Actions;
 - [ ] Containerization of the application. One container for flask app and other for postgres database;
 - [ ] ETL script capable of import for API database data from Kaggle;
+
+## **Quick Start**
+### Setup
+1. Clone the repository
+```bash
+git clone https://github.com/ivanSantos16/underwritingSoftware.git
+```
+2. Create missing file on repository root directory
+```bash
+touch .env
+touch .flaskenv
+```
+
+3. Add the following content to the .env file
+```bash
+export SECRET_KEY=<your_secret_key>
+```  
+
+4. Add the following content to the .flaskenv file
+```bash
+export FLASK_ENV=<development/production>
+export FLASK_APP=<location_of_app>
+export FLASK_DEBUG=<1/0>
+export SQLALCHEMY_DB_URI=<your_db_uri>
+export JWT_SECRET_KEY=<your_jwt_secret_key>
+```
+
+5. Create a virtual environment and install the requirements
+```bash
+python3 -m venv venv
+venv/scripts/activate
+pip install -r requirements.txt
+```
+
+6. Run the application
+```bash
+flask run
+```
